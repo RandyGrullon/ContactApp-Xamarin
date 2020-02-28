@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppContactsXamarin.Views.ContactPage"
+             x:Name="Page"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="Transparent">
+
+    <ContentPage.Content>
+
+        <StackLayout Padding="10,5" BackgroundColor="Transparent">
+
+            <SearchBar Placeholder="Search Contacts"
+                       SearchButtonPressed="AddContact"/>
+            
+            <ListView ItemsSource="{Binding LoadContacts,Mode=TwoWay}"
+                      RowHeight="55"
+                      SelectedItem="{Binding ContactSelected, Mode=TwoWay}"
+                      HasUnevenRows="False"
+                      IsRefreshing="{Binding IsRefreshing}"
+                      RefreshCommand="{Binding RefreshingCommand}"
+                      IsPullToRefreshEnabled="True"
+                      BackgroundColor="Transparent"
+                     >
+
+                <ListView.ItemTemplate >
+                    <DataTemplate >
+                        <ViewCell>
+                            <ViewCell.ContextActions  >
+
+                                <MenuItem  Text="Delete"
+                                           IsDestructive="True"
+                                           Command="{Binding Path=BindingContext.DeleteElementCommand, Source={x:Reference Page}}" 
+                                           CommandParameter="{Binding .}" 
+                                           />
+                            </ViewCell.ContextActions>
+
+                            <StackLayout Orientation="Horizontal" >
+                                <Image Source="User" HeightRequest="50" HorizontalOptions="Start"/>
+                                <Label Text="{Binding Name}" 
+                                       FontSize="16" 
+                                       FontAttributes="Bold" 
+                                       VerticalOptions="Center" />
+
+                            </StackLayout>
+
+                        </ViewCell>
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+
+            </ListView>
+
+            <Image Source="nas"
+                   BackgroundColor="Transparent"
+                   HeightRequest="55"
+                   HorizontalOptions="EndAndExpand">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                Command="{Binding AddContact}"
+                NumberOfTapsRequired="1"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

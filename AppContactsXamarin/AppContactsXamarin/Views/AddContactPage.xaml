@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppContactsXamarin.Views.AddContactPage"
+            Title="Create Contact">
+
+    <ContentPage.ToolbarItems>
+
+
+        <ToolbarItem Text="Save" Priority="0" Order="Primary" Command="{Binding SaveButtonCommand}"/>
+        <ToolbarItem  Order="Secondary" />
+
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout Padding="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+
+                <Frame BackgroundColor="LightGray" 
+                       Grid.ColumnSpan="9">
+                </Frame>
+
+                <Frame BackgroundColor="White" 
+                       Grid.ColumnSpan="5" 
+                       Grid.Column="2"
+                       Padding="10"
+                       CornerRadius="75"
+                       >
+
+                    <Image Source="ic_arrow_drop_down"
+                       Grid.Column="4"
+                       Margin="0,0,0,0"/>
+
+                </Frame>
+
+                <Label Text="Save To" 
+                       FontAttributes="Bold"
+                       FontSize="16"
+                       Grid.Column="0"
+                       Grid.Row="0" 
+                       Grid.ColumnSpan="2"
+                       TextColor="Black" 
+                       Margin="10,15,0,0"/>
+
+                <Image Source="CamaraMas" 
+                       Grid.Column="1" 
+                       Grid.ColumnSpan="7 "
+                       Grid.Row="1"
+                       Grid.RowSpan="3"
+                      />
+                <Image Source="abajo"
+                       Grid.Column="5"
+                       Grid.Row="8"
+                       Margin="15,0,10,0"
+                      />
+
+                <Image Source="abajo"
+                       Grid.Column="5"
+                       Grid.Row="10"
+                       Margin="15,0,10,0"
+                      />
+
+                <Image Source="usuario" 
+                       Grid.Row="4"/>
+                
+                <Image Source="empresa" 
+                       Grid.Row="6"/>
+                
+                <Image Source="llamada" 
+                       Grid.Row="7"/>
+                
+                <Image Source="correo" 
+                       Grid.Row="9"/>
+               
+
+                <Entry Grid.Row="4" 
+                       Grid.Column="1" 
+                       Grid.ColumnSpan="8" 
+                       Text="{Binding Contact.Name}"
+                       Placeholder="Name"/>
+
+                <Entry Grid.Row="5" 
+                       Grid.Column="1" 
+                       Grid.ColumnSpan="8" 
+                       Text="{Binding Contact.LastName}"
+                       Placeholder="Last Name"/>
+
+                <Entry Grid.Row="6" 
+                       Grid.Column="1" 
+                       Grid.ColumnSpan="8" 
+                       Text="{Binding Contact.Company}"
+                       Placeholder="Company"/>
+
+                <Entry Grid.Row="7" 
+                       Grid.Column="1" 
+                       Grid.ColumnSpan="8"  
+                       Text="{Binding Contact.Phone}"
+                       Placeholder="Phone"
+                       Keyboard="Telephone"/>
+
+                <Entry Grid.Row="8" 
+                        Grid.Column="1" 
+                       Grid.ColumnSpan="5"  
+                        Text="{Binding Contact.Mobile}"
+                       Placeholder="Mobile"/>
+
+                <Entry Grid.Row="9" 
+                      Grid.Column="1" 
+                       Grid.ColumnSpan="8"  
+                       Text="{Binding Contact.Email}"
+                       Placeholder="Email"/>
+
+                <Entry Grid.Row="10" 
+                        Grid.Column="1" 
+                       Grid.ColumnSpan="5" 
+                        Text="{Binding Contact.Home}"
+                       Placeholder="Home"/>
+
+
+                <Label Grid.Row="11" 
+                       Grid.Column="1" 
+                       Grid.ColumnSpan="6"  
+                       Text="More Fields"
+                       FontSize="15" 
+                       TextColor="#0086c4" 
+                       FontAttributes="Bold" 
+                       Padding="10,0"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
